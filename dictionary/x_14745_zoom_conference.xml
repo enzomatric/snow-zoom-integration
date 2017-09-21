@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database>
     <element label="Conference" max_length="40" name="x_14745_zoom_conference" type="collection">
+        <element label="Conference Attendees" max_length="4000" name="attendees" reference="sys_user" reference_qual="active=true^EQ" reference_qual_condition="active=true^EQ" type="glide_list"/>
+        <element choice="1" label="Created From" max_length="40" name="created_from" read_only="true" type="string">
+            <choice>
+                <element label="Form" sequence="1" value="form"/>
+                <element label="Chat Message" sequence="2" value="chat"/>
+                <element label="Script" sequence="3" value="script"/>
+            </choice>
+        </element>
         <element label="Duration" max_length="40" name="duration" type="integer"/>
         <element label="H323 Password" max_length="10" name="h323_password" type="string"/>
         <element label="Host ID" max_length="40" name="host_id" type="string"/>
         <element label="ID" max_length="40" name="id" type="string"/>
+        <element default="javascript:gs.getUserID();" dynamic_default_value="2fd8e97bef3221002841f7f775c0fbc1" label="Conference Initiator" mandatory="true" max_length="32" name="initiator" reference="sys_user" type="reference" use_dynamic_default="true"/>
         <element label="Join URL" max_length="40" name="join_url" type="string"/>
         <element default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" read_only="true" type="string"/>
         <element default="both" label="Audio Type" max_length="40" name="option_audio" type="string"/>
@@ -17,10 +26,18 @@
         <element label="Personal ID" max_length="40" name="real_id" type="string"/>
         <element default="javascript:new GlideDateTime();" label="Start Time" max_length="40" name="start_time" type="glide_date_time"/>
         <element label="Start URL" max_length="40" name="start_url" type="string"/>
-        <element label="Status" max_length="40" name="status" type="string"/>
+        <element choice="3" default="New" label="Status" max_length="40" name="status" read_only="true" type="string">
+            <choice>
+                <element label="Started" sequence="1" value="STARTED"/>
+                <element label="Ended" sequence="2" value="ENDED"/>
+                <element label="Attendee Joined - No Host" sequence="3" value="JBH"/>
+                <element label="Attendee Waiting - Not Launched" sequence="4" value="JOIN"/>
+                <element label="Recording Completed" sequence="5" value="RECORDING_MEETING_COMPLETED"/>
+            </choice>
+        </element>
         <element label="Timezone" max_length="40" name="timezone" type="string"/>
-        <element label="Topic" max_length="40" name="topic" type="string"/>
-        <element choice="3" label="Type" max_length="40" name="type" type="integer">
+        <element label="Topic" max_length="300" name="topic" type="string"/>
+        <element choice="3" label="Type" mandatory="true" max_length="40" name="type" type="integer">
             <choice>
                 <element label="Instant Meeting" sequence="1" value="1"/>
                 <element label="Scheduled Meeting" sequence="2" value="2"/>
@@ -28,5 +45,8 @@
             </choice>
         </element>
         <element label="Unique ID (Host ID)" max_length="40" name="uuid" type="string"/>
+        <index name="index">
+            <element name="initiator"/>
+        </index>
     </element>
 </database>
