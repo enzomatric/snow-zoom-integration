@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Conference" max_length="40" name="x_14745_zoom_conference" type="collection">
+        <element label="Duration" max_length="40" name="duration" type="integer"/>
+        <element label="H323 Password" max_length="10" name="h323_password" type="string"/>
+        <element label="Host ID" max_length="40" name="host_id" type="string"/>
+        <element label="ID" max_length="40" name="id" type="string"/>
+        <element label="Join URL" max_length="40" name="join_url" type="string"/>
+        <element default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" read_only="true" type="string"/>
+        <element default="both" label="Audio Type" max_length="40" name="option_audio" type="string"/>
+        <element label="Enforce Domain Login" max_length="40" name="option_enforce_domain_logins" type="boolean"/>
+        <element label="Enforce Login" max_length="40" name="option_enforce_login" type="boolean"/>
+        <element default="true" label="Host Video" max_length="40" name="option_host_video" type="boolean"/>
+        <element default="true" label="Participants Video" max_length="40" name="option_participants_video" type="boolean"/>
+        <element label="Meeting Start Type" max_length="40" name="option_start_type" type="string"/>
+        <element label="Password" max_length="10" name="password" type="string"/>
+        <element label="Personal ID" max_length="40" name="real_id" type="string"/>
+        <element default="javascript:new GlideDateTime();" label="Start Time" max_length="40" name="start_time" type="glide_date_time"/>
+        <element label="Start URL" max_length="40" name="start_url" type="string"/>
+        <element label="Status" max_length="40" name="status" type="string"/>
+        <element label="Timezone" max_length="40" name="timezone" type="string"/>
+        <element label="Topic" max_length="40" name="topic" type="string"/>
+        <element choice="3" label="Type" max_length="40" name="type" type="integer">
+            <choice>
+                <element label="Instant Meeting" sequence="1" value="1"/>
+                <element label="Scheduled Meeting" sequence="2" value="2"/>
+                <element label="Recurring Meeting (no fixed time)" sequence="3" value="3"/>
+            </choice>
+        </element>
+        <element label="Unique ID (Host ID)" max_length="40" name="uuid" type="string"/>
+    </element>
+</database>
