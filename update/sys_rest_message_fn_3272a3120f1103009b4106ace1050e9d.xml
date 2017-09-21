@@ -11,7 +11,7 @@
         <oauth2_profile/>
         <protocol_name/>
         <rest_endpoint>https://api.zoom.us/v1/</rest_endpoint>
-        <rest_message display_value="Create Zoom Conference">a5022b920f1103009b4106ace1050ec9</rest_message>
+        <rest_message display_value="initiate_conference">a5022b920f1103009b4106ace1050ec9</rest_message>
         <sys_class_name>sys_rest_message_fn</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2017-09-21 21:48:11</sys_created_on>
