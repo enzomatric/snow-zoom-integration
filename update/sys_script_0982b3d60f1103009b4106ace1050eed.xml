@@ -36,7 +36,7 @@
 		var r = new sn_ws.RESTMessageV2('x_14745_zoom.initiate_conference', 'post');
 		r.setStringParameter('api_key', gs.getProperty('x_14745_zoom.api-key'));
 		r.setStringParameter('api_secret', gs.getProperty('x_14745_zoom.api-secret'));
-		r.setStringParameter('host_id', current.initiator.user_id); //user must be registered under the zoom account with the API key and secret
+		r.setStringParameter('host_id', new getZoomUser().getID(current.initiator.email)); //user must be registered under the zoom account with the API key and secret
 		r.setStringParameter('topic', current.topic);
 		r.setStringParameter('type', current.type);
 		
@@ -80,7 +80,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>0982b3d60f1103009b4106ace1050eed</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_name>Initiate Zoom Conference  (instant)</sys_name>
         <sys_overrides/>
         <sys_package display_value="Zoom" source="x_14745_zoom">683fd3520f1103009b4106ace1050e00</sys_package>
@@ -89,7 +89,7 @@
         <sys_scope display_value="Zoom">683fd3520f1103009b4106ace1050e00</sys_scope>
         <sys_update_name>sys_script_0982b3d60f1103009b4106ace1050eed</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2017-09-21 23:29:00</sys_updated_on>
+        <sys_updated_on>2017-09-22 00:05:44</sys_updated_on>
         <template/>
         <when>async</when>
     </sys_script>
